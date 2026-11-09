@@ -1,0 +1,191 @@
+{
+  "description": "Original-source hashes and packaging-only adaptations; no experiment data included",
+  "files": [
+    {
+      "source": "mrg-project/app/knowledge_strategies.py",
+      "sha256": "151f6b027635c0c9ee9b17aef2086c939ea27d03762dd29a1ba4d634a0b5aa30",
+      "changes": [
+        "Only discovery registry exported; compensation/index registries excluded"
+      ]
+    },
+    {
+      "source": "mrg-project/app/kd_materials.py",
+      "sha256": "6fe47aa548f7dff2084984dd8420a70b7eeb3fd471c411005519973e01f7e4f0",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/github_client.py",
+      "sha256": "10cf487393f373ea0aecd3e17db902d5e6dfbcdf929db80c9edfd6b40b1379c4",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2.py",
+      "sha256": "427ad1a861f0f791d00fbf795f0a66ebe6b40b1ff7f1e177aa852e1dc180784b",
+      "changes": [
+        "Common helpers only; KD-S-2 strategy implementation excluded"
+      ]
+    },
+    {
+      "source": "mrg-project/app/kd_s2_format.py",
+      "sha256": "0ba75461b489af897eef08f037007ee4ab8b24bcbb467504327bdaea428d82d0",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_sources.py",
+      "sha256": "a14787aaf645d05cdaaf93cfc84ab63595e14682392687a74568dec53b4c3ff8",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_units.py",
+      "sha256": "bb856f3fa0af440bd7a2930ca6dd5e180c397e516039c6bc6c1245cac73050ab",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_evidence.py",
+      "sha256": "166f955909dff7d8425fa7d70243da85c886fc12a415e4623d9b9f5ec657e7dd",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_progress.py",
+      "sha256": "36d7c299ce9196a239c41481e24362bc7be099fef65d242fa3b279dfd6b7f84e",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_enrichment.py",
+      "sha256": "355c09eb8246cf34ce8ffe0f0a893c7d30accec69600560a3398932766189256",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_architecture.py",
+      "sha256": "cee96bb602b8d246e283caf81d2cb6ff238ee39f6e9cdb9321b5f6d52383a726",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_spans.py",
+      "sha256": "101767e6689c9e7e3f1957f330262bb55a8c6d0e4f92ff06dece499ab92c10d3",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_paths.py",
+      "sha256": "7d10a58b9d13eed5466238d04b9b903a3e3f1a6ad228c80c7eda5d2b1c3ba05c",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_report.py",
+      "sha256": "9123ad4b70b61c1e319ebb22b57982af709e9510c83cd86b641ba80a1be22e75",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s3.py",
+      "sha256": "f29bb5228bcca4534a5321c96e2e29aaf0d093e1d00ca0d4194bfc0acc11df59",
+      "changes": [
+        "Fingerprint identifies standalone package instead of unused Joern script"
+      ]
+    },
+    {
+      "source": "mrg-project/app/kd_s3_branches.py",
+      "sha256": "f6d3bd0d219952d27bf05d6d5dfb129943392cb8e91a710b5ce9296e0472d59d",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s3_calls.py",
+      "sha256": "c31b94ccef32d2321f2f7af9944a2ff45bebeef058bbc22a2200073bc3a2afdd",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s3_contracts.py",
+      "sha256": "ca6e4ef3fab871dec3df0a40de6038835917c46984c90562f72ef97e967b70f6",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s3_graph.py",
+      "sha256": "015cf853eb9cd0de071dafa249ce3eea7a2aac384a0d0925aa9c08357b14add2",
+      "changes": [
+        "Only active locator helpers; obsolete Joern executor excluded"
+      ]
+    },
+    {
+      "source": "mrg-project/app/kd_s3_index.py",
+      "sha256": "19d0257ceda6bea966ec275004e33d4ac895c23c21886e0726149af6c8521e52",
+      "changes": [
+        "Pinned installed grammars replace workspace-only binary locations"
+      ]
+    },
+    {
+      "source": "mrg-project/app/kd_s3_index_worker.py",
+      "sha256": "541c4a65f1754b52935b67961fb1c75898e17c2e9144cc45134f3f995b6ebf48",
+      "changes": [
+        "Isolated parser imports installed package"
+      ]
+    },
+    {
+      "source": "mrg-project/app/kd_s3_packages.py",
+      "sha256": "45f21a99b2d39d522a88ff0b06680eef2e669e26342191aef173ec83e71889e8",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s3_requirements.py",
+      "sha256": "fb829a50a4a7e13519b0614fd38b7bc35617651b8d15338c195a1d61397054f8",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s3_review.py",
+      "sha256": "79a82460ef6139f5e21d170b125c144a661823b1fcae84b6f9e99833a396c3a6",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s3_support.py",
+      "sha256": "0fb2b58290e2403d0426f2523a449436e090a60ab989e34b1c3bc3b148b5fa1d",
+      "changes": []
+    },
+    {
+      "source": "mrg-project/app/kd_s2_supplement.py",
+      "sha256": "760bfc9e3705c84f4104b8ef2fbb900c8c48c5fc410e3bc576a2c645037c6930",
+      "changes": [
+        "Only unchanged relation application and preservation check retained"
+      ]
+    }
+  ],
+  "packaging_changes": [
+    "Only KD-S-3 is registered; KD-S-2 executor, request dispatcher and retired Joern executor are excluded.",
+    "KDiscovery registry lookup is separate from constructor exceptions.",
+    "Rule fingerprint includes all packaged Python modules; installed grammar versions and binary hashes are separately frozen.",
+    "Native parser worker imports kdiscovery instead of the host app.",
+    "Standalone JSON model adapter retains system prefix, strict parsing, low-effort DeepSeek policy, request limits and no automatic transport retries.",
+    "CLI adds environment credentials, run-configuration consistency, OS run lock and unknown-result guard; original mining strategy is unchanged."
+  ],
+  "packaged_python_sha256": {
+    "src/kdiscovery/__init__.py": "bd7619100f48d65278c59ffd4d04ffc7f01392173f1306dbd7a530933c83c828",
+    "src/kdiscovery/api.py": "4770baf8a94626a715e7a00794a5f4e1ba02d6bc78cbf730cd8c8ed151bc5ecb",
+    "src/kdiscovery/cli.py": "3d4477b9bb5492015fb78fd588a350817d78af53718cd76806710da53fbd5446",
+    "src/kdiscovery/github_client.py": "945b44465cca812b838fab10d932e790770881347244eeb54913b013542306c6",
+    "src/kdiscovery/kd_materials.py": "4b31191d40a4671be1bd75ca1e6995ffd01a4c33743e455bf84b5449c811ccb7",
+    "src/kdiscovery/kd_s2.py": "462faaec0c36162a6353d924340289d3f9ca2e57bd58a357af75a027dab079b7",
+    "src/kdiscovery/kd_s2_architecture.py": "cee96bb602b8d246e283caf81d2cb6ff238ee39f6e9cdb9321b5f6d52383a726",
+    "src/kdiscovery/kd_s2_enrichment.py": "355c09eb8246cf34ce8ffe0f0a893c7d30accec69600560a3398932766189256",
+    "src/kdiscovery/kd_s2_evidence.py": "166f955909dff7d8425fa7d70243da85c886fc12a415e4623d9b9f5ec657e7dd",
+    "src/kdiscovery/kd_s2_format.py": "0ba75461b489af897eef08f037007ee4ab8b24bcbb467504327bdaea428d82d0",
+    "src/kdiscovery/kd_s2_paths.py": "7d10a58b9d13eed5466238d04b9b903a3e3f1a6ad228c80c7eda5d2b1c3ba05c",
+    "src/kdiscovery/kd_s2_progress.py": "41b54195439bf9403e9c7cb64774a05dddc1c1be2f1a2e5cbd1961345d341312",
+    "src/kdiscovery/kd_s2_report.py": "72e767ca53dc3e7bf82cca7379154ee496d62edec1cab7c24d3031c4efa5083b",
+    "src/kdiscovery/kd_s2_sources.py": "a14787aaf645d05cdaaf93cfc84ab63595e14682392687a74568dec53b4c3ff8",
+    "src/kdiscovery/kd_s2_spans.py": "101767e6689c9e7e3f1957f330262bb55a8c6d0e4f92ff06dece499ab92c10d3",
+    "src/kdiscovery/kd_s2_supplement.py": "2b6c23e135caa7f6beb884ad21fa4986a1717515645188b1dd801b9be46e4f71",
+    "src/kdiscovery/kd_s2_units.py": "3bcf85abae49e925befa0fb1a10e6078305c1149dcda6049e7d33de4ee2e67a1",
+    "src/kdiscovery/kd_s3.py": "751675b6b413d42b2ee4598d151d2fbd8a1014454eb55f33ad6b7bd9f4381b97",
+    "src/kdiscovery/kd_s3_branches.py": "f6d3bd0d219952d27bf05d6d5dfb129943392cb8e91a710b5ce9296e0472d59d",
+    "src/kdiscovery/kd_s3_calls.py": "c31b94ccef32d2321f2f7af9944a2ff45bebeef058bbc22a2200073bc3a2afdd",
+    "src/kdiscovery/kd_s3_contracts.py": "ca6e4ef3fab871dec3df0a40de6038835917c46984c90562f72ef97e967b70f6",
+    "src/kdiscovery/kd_s3_graph.py": "74449f1e44209b96c0d0cb4771a78c94cfb3ae65dd1d209d8a5d9b9998b776b2",
+    "src/kdiscovery/kd_s3_index.py": "e60aa5a0a553ef1185a27ee8eeca3bcd98041e16e9f8fe77c42075c01d073b2e",
+    "src/kdiscovery/kd_s3_index_worker.py": "c1a57d1fcb8a330096883611edcc8b0d30e815efc461c5dd01f5bb65d6a64c58",
+    "src/kdiscovery/kd_s3_packages.py": "21b3c62a496fa57531c42df5b986ef797500ce54c7ef4f12611795f412b04c6d",
+    "src/kdiscovery/kd_s3_requirements.py": "96646ff2cb26e00456453320b7268379e0b6952691c47c7f6a70dbaf248a6f2d",
+    "src/kdiscovery/kd_s3_review.py": "acfafdb142573f50679770f50358e760e70edfd583e11b65e6de30f52d967555",
+    "src/kdiscovery/kd_s3_support.py": "0fb2b58290e2403d0426f2523a449436e090a60ab989e34b1c3bc3b148b5fa1d",
+    "src/kdiscovery/knowledge_strategies.py": "cfa59b536f6960af97737f2d9c413b8650e394b02d7c5976df53d7e52cc21cb3",
+    "src/kdiscovery/providers.py": "322c6686929aefad149d94a5ccca174cc99de608ff25823d43dfd4ace5ac565c",
+    "src/kdiscovery/runtime.py": "78cecff380f02b7ffa1f75323d1b00f364bd4653876f5043343ee36b5fdabbcc",
+    "src/kdiscovery/structured_output.py": "1a6987410c5d1f9bae0d38979c000647c59715cbc85088ce8017741efcf20073"
+  }
+}

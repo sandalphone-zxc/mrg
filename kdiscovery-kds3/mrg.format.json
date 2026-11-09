@@ -1,0 +1,864 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mrg:requirements:v1",
+  "title": "需求与业务流程 MRG",
+  "description": "SOP为功能，OMN为业务操作，MN为状态或结果。无需实现绑定和界面。未知通过open_items记录。",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "mrg-requirements-v1",
+      "description": "需求格式标识；不能按旧的执行型 MRG 解释。"
+    },
+    "MNS": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "项目内唯一且稳定的对象标识。"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "面向需求方的业务名称。"
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1,
+          "description": "项目希望达成的业务目标。"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "实际服务或参与的用户角色。"
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "业务发生的场景。"
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "需求涉及的业务范围。"
+        },
+        "outcomes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "项目预期交付的业务成果。"
+        },
+        "success_criteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "有依据的成功判定条件，未知时记录缺口。"
+        },
+        "SOP_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "顶层功能引用集合；不表示执行顺序。"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "evidence.json 中支持当前对象具体字段的证据 ID。"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "goal",
+        "users",
+        "scenarios",
+        "scope",
+        "outcomes",
+        "success_criteria",
+        "SOP_refs",
+        "source_refs"
+      ],
+      "description": "整个项目的需求边界与目标。"
+    },
+    "business_objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "项目内唯一且稳定的对象标识。"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "面向需求方的业务名称。"
+          },
+          "meaning": {
+            "type": "string",
+            "minLength": 1,
+            "description": "对象、端口或关系的业务含义；不只匹配名称。"
+          },
+          "necessary_content": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "交接或识别该对象所必需的业务内容。"
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "该业务对象已知的状态定义。"
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "evidence.json 中支持当前对象具体字段的证据 ID。"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "meaning",
+          "necessary_content",
+          "states",
+          "source_refs"
+        ]
+      },
+      "description": "仅在本项目范围内引用的业务对象定义。"
+    },
+    "SOP": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SOP"
+      },
+      "description": "功能级业务能力集合。"
+    },
+    "OMN": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/OMN"
+      },
+      "description": "功能内部的业务操作，不限定界面或执行技术。"
+    },
+    "MN": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/MN"
+      },
+      "description": "有业务意义的状态、结果或检查点。"
+    },
+    "ME": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ME"
+      },
+      "description": "有证据的业务关系，不由包含关系或列表顺序推导。"
+    },
+    "Sessions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Session"
+      },
+      "description": "可选交互会话，资料未支持时留空。"
+    },
+    "SE": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SE"
+      },
+      "description": "可选交互关系，不代替业务 ME。"
+    },
+    "open_items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/gap"
+      },
+      "description": "未知、未读取、不支持、冲突或预算待继续的事项。"
+    }
+  },
+  "required": [
+    "format",
+    "MNS",
+    "business_objects",
+    "SOP",
+    "OMN",
+    "MN",
+    "ME",
+    "Sessions",
+    "SE",
+    "open_items"
+  ],
+  "$defs": {
+    "port": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "语义输入输出的稳定引用键，不是技术类型。"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "面向需求方的业务名称。"
+        },
+        "meaning": {
+          "type": "string",
+          "minLength": 1,
+          "description": "对象、端口或关系的业务含义；不只匹配名称。"
+        },
+        "necessity": {
+          "enum": [
+            "required",
+            "optional",
+            "unknown"
+          ],
+          "description": "required 必要，optional 可选，unknown 尚未明确。"
+        },
+        "object_ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "可选的项目内业务对象引用。"
+        },
+        "necessary_content": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "交接或识别该对象所必需的业务内容。"
+        },
+        "granularity": {
+          "type": "string",
+          "minLength": 1,
+          "description": "单条、批量或其他有依据的业务粒度。"
+        },
+        "time_scope": {
+          "type": "string",
+          "minLength": 1,
+          "description": "内容适用的时间或时间范围。"
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "description": "具有业务意义的计量单位。"
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1,
+          "description": "输入或输出要求的业务状态，例如草稿或已完成。"
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "meaning",
+        "necessity"
+      ]
+    },
+    "SOP": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "项目内唯一且稳定的对象标识。"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "面向需求方的业务名称。"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "description": "该功能、操作或状态的业务意义与目的。"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/port"
+          },
+          "description": "进入本功能或节点的业务信息或对象。"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/port"
+          },
+          "description": "本功能或节点产出的业务信息或对象。"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "有来源支持的业务规则。"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "evidence.json 中支持当前对象具体字段的证据 ID。"
+        },
+        "parent_sop_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "包含当前功能的父 SOP；null 为项目顶层，不表示前后顺序。"
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "功能开始前必须具备的业务条件。"
+        },
+        "completion_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "功能完成的业务判定条件。"
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "condition": {
+                "type": "string",
+                "minLength": 1,
+                "description": "关系推进、反馈、重试或失效的业务条件。"
+              },
+              "response": {
+                "type": "string",
+                "minLength": 1,
+                "description": "异常出现后应采取的业务动作或告知。"
+              }
+            },
+            "required": [
+              "condition",
+              "response"
+            ]
+          },
+          "description": "异常条件及业务应对；不要求列出程序异常类型。"
+        },
+        "input_bindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "input_key": {
+                "type": "string",
+                "minLength": 1,
+                "description": "被引用的语义输入键。"
+              },
+              "node_id": {
+                "type": "string",
+                "minLength": 1,
+                "description": "功能内部 MN 或 OMN 的标识。"
+              },
+              "node_input_key": {
+                "type": "string",
+                "minLength": 1,
+                "description": "内部节点的输入键。"
+              },
+              "meaning": {
+                "type": "string",
+                "minLength": 1,
+                "description": "对象、端口或关系的业务含义；不只匹配名称。"
+              }
+            },
+            "required": [
+              "input_key",
+              "node_id",
+              "node_input_key",
+              "meaning"
+            ]
+          },
+          "description": "功能输入如何进入内部步骤。"
+        },
+        "output_bindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "output_key": {
+                "type": "string",
+                "minLength": 1,
+                "description": "被引用的语义输出键。"
+              },
+              "node_id": {
+                "type": "string",
+                "minLength": 1,
+                "description": "功能内部 MN 或 OMN 的标识。"
+              },
+              "node_output_key": {
+                "type": "string",
+                "minLength": 1,
+                "description": "内部节点的输出键。"
+              },
+              "meaning": {
+                "type": "string",
+                "minLength": 1,
+                "description": "对象、端口或关系的业务含义；不只匹配名称。"
+              }
+            },
+            "required": [
+              "output_key",
+              "node_id",
+              "node_output_key",
+              "meaning"
+            ]
+          },
+          "description": "哪些内部产出构成功能的对外交付。"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "purpose",
+        "inputs",
+        "outputs",
+        "rules",
+        "source_refs",
+        "parent_sop_id",
+        "preconditions",
+        "completion_conditions",
+        "exceptions",
+        "input_bindings",
+        "output_bindings"
+      ],
+      "description": "功能级能力；可不细化内部流程，前置依赖不影响保留。"
+    },
+    "OMN": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "项目内唯一且稳定的对象标识。"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "面向需求方的业务名称。"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "description": "该功能、操作或状态的业务意义与目的。"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/port"
+          },
+          "description": "进入本功能或节点的业务信息或对象。"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/port"
+          },
+          "description": "本功能或节点产出的业务信息或对象。"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "有来源支持的业务规则。"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "evidence.json 中支持当前对象具体字段的证据 ID。"
+        },
+        "sop_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "内部节点所属的功能 SOP。"
+        },
+        "actor": {
+          "enum": [
+            "human",
+            "system",
+            "external",
+            "unknown"
+          ],
+          "description": "操作承担者：人工、系统、外部，或尚未确定。"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "purpose",
+        "inputs",
+        "outputs",
+        "rules",
+        "source_refs",
+        "sop_id",
+        "actor"
+      ],
+      "description": "人工、系统或外部执行的业务操作，不要求用户界面。"
+    },
+    "MN": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "项目内唯一且稳定的对象标识。"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "面向需求方的业务名称。"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "description": "该功能、操作或状态的业务意义与目的。"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/port"
+          },
+          "description": "进入本功能或节点的业务信息或对象。"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/port"
+          },
+          "description": "本功能或节点产出的业务信息或对象。"
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "有来源支持的业务规则。"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "evidence.json 中支持当前对象具体字段的证据 ID。"
+        },
+        "sop_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "内部节点所属的功能 SOP。"
+        },
+        "state_description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "该业务状态、结果或检查点具体意味着什么。"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "purpose",
+        "inputs",
+        "outputs",
+        "rules",
+        "source_refs",
+        "sop_id",
+        "state_description"
+      ],
+      "description": "有业务意义的状态、结果或检查点，不要求可见。"
+    },
+    "ME": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "项目内唯一且稳定的对象标识。"
+        },
+        "level": {
+          "enum": [
+            "function",
+            "internal"
+          ],
+          "description": "function 连接同一父流程的 SOP；internal 连接同一 SOP 内的节点。"
+        },
+        "owner_sop_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "关系所在的父流程；功能顶层关系为 null。"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "description": "关系的起点对象标识。"
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1,
+          "description": "关系的终点对象标识。"
+        },
+        "relation": {
+          "enum": [
+            "delivery",
+            "conditional_next",
+            "feedback",
+            "retry",
+            "invalidation"
+          ],
+          "description": "交付、条件推进、反馈、重试或失效，必须与来源含义一致。"
+        },
+        "condition": {
+          "type": "string",
+          "description": "关系推进、反馈、重试或失效的业务条件。"
+        },
+        "meaning": {
+          "type": "string",
+          "minLength": 1,
+          "description": "对象、端口或关系的业务含义；不只匹配名称。"
+        },
+        "transfers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "output_key": {
+                "type": "string",
+                "minLength": 1,
+                "description": "被引用的语义输出键。"
+              },
+              "input_key": {
+                "type": "string",
+                "minLength": 1,
+                "description": "被引用的语义输入键。"
+              },
+              "meaning": {
+                "type": "string",
+                "minLength": 1,
+                "description": "对象、端口或关系的业务含义；不只匹配名称。"
+              }
+            },
+            "required": [
+              "output_key",
+              "input_key",
+              "meaning"
+            ]
+          },
+          "description": "两端端口之间的数据或业务对象交接。"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "evidence.json 中支持当前对象具体字段的证据 ID。"
+        }
+      },
+      "required": [
+        "id",
+        "level",
+        "owner_sop_id",
+        "source",
+        "target",
+        "relation",
+        "condition",
+        "meaning",
+        "transfers",
+        "source_refs"
+      ],
+      "description": "显式业务依赖；包含、排序和布局不产生关系。"
+    },
+    "Session": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "项目内唯一且稳定的对象标识。"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "面向需求方的业务名称。"
+        },
+        "node_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "交互涉及的内部节点标识。"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "对该交互或缺口的具体业务说明。"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "evidence.json 中支持当前对象具体字段的证据 ID。"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "node_refs",
+        "description",
+        "source_refs"
+      ]
+    },
+    "SE": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "项目内唯一且稳定的对象标识。"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "description": "关系的起点对象标识。"
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1,
+          "description": "关系的终点对象标识。"
+        },
+        "meaning": {
+          "type": "string",
+          "minLength": 1,
+          "description": "对象、端口或关系的业务含义；不只匹配名称。"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "evidence.json 中支持当前对象具体字段的证据 ID。"
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "target",
+        "meaning",
+        "source_refs"
+      ]
+    },
+    "gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "缺口所涉及的 MRG 对象标识。"
+        },
+        "topic": {
+          "type": "string",
+          "minLength": 1,
+          "description": "需要补齐或核实的事项。"
+        },
+        "status": {
+          "enum": [
+            "unknown",
+            "not_read",
+            "unsupported",
+            "conflicting",
+            "budget_pending"
+          ],
+          "description": "unknown 未知；not_read 未读；unsupported 不支持；conflicting 冲突；budget_pending 预算待继续。"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "对该交互或缺口的具体业务说明。"
+        },
+        "locators": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "后续取证可使用的路径、符号或关键词线索。"
+        }
+      },
+      "required": [
+        "target_id",
+        "topic",
+        "status",
+        "description",
+        "locators"
+      ]
+    }
+  }
+}

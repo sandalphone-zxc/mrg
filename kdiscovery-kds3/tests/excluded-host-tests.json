@@ -1,0 +1,12 @@
+[
+  {
+    "file": "test_kd_s3.py",
+    "test": "test_light_index_keeps_calls_without_full_graph_export",
+    "reason": "Host service or retired Joern integration, outside standalone package"
+  },
+  {
+    "file": "test_kd_s3.py",
+    "test": "test_strategy_service_idempotency_and_nonresetting_resume",
+    "reason": "Host service or retired Joern integration, outside standalone package"
+  }
+]
