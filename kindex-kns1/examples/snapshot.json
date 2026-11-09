@@ -1,0 +1,16 @@
+{
+  "id": "demo-v1",
+  "projects": {
+    "demo": {"repo": "example/document-service", "license": "MIT", "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "mns": {"SOP_refs": ["SOP.documents"]}}
+  },
+  "entities": {
+    "SOP.documents": {"name": "文档管理", "goal": "管理文档的保存和交付", "sub_sop_refs": ["SOP.export"]},
+    "SOP.export": {"name": "导出报告", "goal": "将已有文档导出为报告", "sub_sop_refs": [], "entry_conditions": ["已有文档"], "completion_conditions": ["生成报告"]}
+  },
+  "rows": {
+    "SOP.export": {"aliases": ["报告生成", "export"], "inputs": "文档", "outputs": "报告文件", "industry": "内容管理", "mapping_status": "source_located_not_runtime_tested", "functional_evidence": [{"path": "example.py", "line": 1}], "capability_profile": {"details": {"scenarios": ["用户导出文档"], "limitations": []}}}
+  },
+  "trees": {
+    "demo": {"commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "nodes": [{"id": "UNIT.render", "type": "unit", "parent": "SOP.export", "name": "渲染报告", "purpose": "生成报告内容", "inputs": ["文档"], "outputs": ["报告文件"], "preconditions": [], "steps": ["渲染"], "confidence": 1, "code_locations": []}]}
+  }
+}

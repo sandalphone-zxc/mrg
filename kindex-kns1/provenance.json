@@ -1,0 +1,29 @@
+{
+  "original_source_sha256": {
+    "kn_s1.py": "ed91d700246010a71c0d5b3527ce7f2e03739f7d5a3895b4156b4332605d9203",
+    "knowledge.py": "3c2f251303f7d808faaaa556f374d76ce2d83b66b93beafa0b964550d896ed2e",
+    "retrieval.py": "9c5698740c372e2a45f7e6d33c8c75180c9d75ba3dc214b60e29d5b478203641",
+    "vector_index.py": "6305be986d40c3be561ef1bfece2f2c17ff3155c0770b766b80b077bc5214327",
+    "knowledge_strategies.py": "151f6b027635c0c9ee9b17aef2086c939ea27d03762dd29a1ba4d634a0b5aa30"
+  },
+  "scope": "KN-S-1 implementation and selected independent helpers; no host data or configuration",
+  "packaging_changes": [
+    "Extracted KIndex registry and pure hashing/tokenization/vector-validation helpers; no host app imports.",
+    "Added SQLiteStore, keyword-only default, optional HTTP embeddings provider and CLI.",
+    "Preserved original document mapping, keyword/vector ranking and hierarchy queries on valid immutable snapshots.",
+    "Added fail-fast ownership validation, immutable snapshot ID binding and query-limit validation.",
+    "Registry lookup errors no longer hide constructor KeyError; index output format is explicitly named."
+  ],
+  "packaged_python_sha256": {
+    "src/kindex/__init__.py": "9e37d0357ba148d56eee0bdad44550d4732842f8b139444985e439906e67ca63",
+    "src/kindex/cli.py": "5c9d4c48ecece4fa96d318b263229d253bff81d89bfc4cd4a237b0949abced60",
+    "src/kindex/contracts.py": "3bdf35fe0e022a58d7608738dbc860af757ffbf8cb04a64c173aa4e363198eaf",
+    "src/kindex/kn_s1.py": "5a3391988af812ab7253668084c5709743183fcc62e7de5cf024947e6d296fc4",
+    "src/kindex/knowledge.py": "deefd3640bb36498034654e3c82352606d4d534acedd48aa9f45262647130703",
+    "src/kindex/knowledge_strategies.py": "da7c24f29c0ed795a6eb07bc68cc86da7a6a7861edf6d6772c0480ea1c0c091e",
+    "src/kindex/providers.py": "ed6c59ccbb673073a702e548e16dff1098d128f07b212f1262e0b3d11e23fc5d",
+    "src/kindex/retrieval.py": "7f633025b848b28327651227fbd8f738e43050c7166fcf395dfe035c24134266",
+    "src/kindex/store.py": "54e4a2320c08f655bdb0fc579a451eb437d7663d05cae8540752a7b9d211dd68",
+    "src/kindex/vector_index.py": "7ae3f6d9cce55306c1d1de48f5f944fff40623d8ec3029a130e3095213cd03ec"
+  }
+}
